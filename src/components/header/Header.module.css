@@ -1,8 +1,30 @@
 header{
 font-weight: 600;
 font-size: 20px;
+position: relative;
 }
-
+.shopCartButton{
+  float: right;
+  cursor: pointer;
+  transition: color,transform 500ms ease;
+}
+.shopCartButton:hover,
+.shopCartButton.active{
+  color:#dc3d3d;
+  transform: scale(1.5);
+}
+.shopCart {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  width: 450px;
+  min-height: 100px;
+  background: #fafafa;
+  -webkit-box-shadow: 6px 8px 30px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 6px 8px 30px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 6px 8px 30px 0px rgba(34, 60, 80, 0.2);
+  z-index: 100;
+}
 header ul.nav {
   float: right;
   list-style: none;

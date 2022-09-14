@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './Header.module.css'
+import { FaShoppingCart } from "react-icons/fa";
 
 export const Header=()=> {
+
+  let [cartOpen,setCartOpen]= useState(false)
+
   return (
     <header>
       <div>
@@ -11,6 +15,13 @@ export const Header=()=> {
           <li>About us</li>
           <li>Profile</li>
         </ul>
+        <FaShoppingCart onClick={()=>{setCartOpen(!cartOpen)}} className={cartOpen ? `${s.shopCartButton} ${s.active}` : s.shopCartButton }/>
+      {
+        cartOpen &&
+        <div className={s.shopCart}>
+
+        </div>
+      }
       </div>
       <div className={s.presentation}>
 
