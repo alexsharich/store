@@ -8,6 +8,7 @@ type ItemsPropsType={
 }
 
 export const Items:React.FC<ItemsPropsType>=({items})=> {
+
   return (
     <main className={s.main}>
 {

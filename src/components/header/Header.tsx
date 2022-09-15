@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import s from './Header.module.css'
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from 'react-redux';
+import { AppRootStateType } from '../../bll/store';
+import { ItemType } from '../../bll/productsReducer';
+import { Order } from '../order/Order';
 
 export const Header=()=> {
 
   let [cartOpen,setCartOpen]= useState(false)
+  const orders = useSelector<AppRootStateType,Array<ItemType>>(state=>state.productsReducer.orders)
 
   return (
     <header>
@@ -19,7 +24,12 @@ export const Header=()=> {
       {
         cartOpen &&
         <div className={s.shopCart}>
-
+          {
+            orders.length 
+            ?  orders.map((el)=>(
+              <Order key={el.id} item={el}/>))
+            :  <div className={s.emptyCart}>Cart is empty</div>
+          }
         </div>
       }
       </div>
