@@ -10,6 +10,8 @@ export const Header=()=> {
 
   let [cartOpen,setCartOpen]= useState(false)
   const orders = useSelector<AppRootStateType,Array<ItemType>>(state=>state.productsReducer.orders)
+  let totalPrice = 0
+  orders.forEach(item=>totalPrice += Number.parseFloat(item.price))
 
   return (
     <header>
@@ -30,6 +32,7 @@ export const Header=()=> {
               <Order key={el.id} item={el}/>))
             :  <div className={s.emptyCart}>Cart is empty</div>
           }
+          {orders.length>0 && <p className={s.totalPrice}>Total: {new Intl.NumberFormat().format(totalPrice)}$</p>}
         </div>
       }
       </div>

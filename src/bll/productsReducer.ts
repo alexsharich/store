@@ -83,16 +83,20 @@ type InitialStateType = {
 items:Array<ItemType>
 }
 
-type ActionType = AddToOrderActionType
+type ActionType = AddToOrderActionType | DeleteOrderActionTtype
 
 export const productsReducer = (state:InitialStateType=initialState,action:ActionType):InitialStateType=>{
   switch (action.type){
     case 'ADD-TO-ORDER':
-      console.log(state.orders)
       return {
          ...state,
         orders:[...state.orders,action.item] 
         }
+     case 'DELETE-ORDER' :
+return {
+  ...state,
+  orders:state.orders.filter((items:ItemType)=>items.id !==action.id )
+}
       default: 
         return state
   } 
@@ -121,5 +125,20 @@ export const addToOrderTC = (item:ItemType):any=>{
     if (!isInArray){
       dispatch(addToOrderAC(item))
     }
+  }
+}
+type DeleteOrderActionTtype = {
+  type:'DELETE-ORDER'
+  id:number
+}
+const deleteOrderAC = (id:number):DeleteOrderActionTtype=>{
+  return {
+    type:'DELETE-ORDER',
+    id
+  }
+}
+export const deleteOrderTC = (id:number):any=>{
+  return (dispatch:any)=>{ 
+    dispatch(deleteOrderAC(id))
   }
 }

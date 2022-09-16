@@ -74,6 +74,13 @@ header .presentation::before{
   font-weight: 300;
   color: #fff;
 }
+.totalPrice {
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 
 footer {
   text-align: center;

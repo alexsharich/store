@@ -1,8 +1,7 @@
 .item {
   width: 100%;
   float: left;
-  margin: 20px;
-  padding-bottom: 0;
+
 }
 .item img {
   width: 70px;
@@ -11,9 +10,21 @@
 }
 .item h2 {
  font-size: 20px;
- margin-bottom: 10px;
+
 }
 .item p {
   color: #797979;
   font-weight: 600;
+ }
+ .deleteIcon {
+  color: #ca5252;
+  float: right;
+  position: relative;
+  top: -40px;
+  cursor: pointer;
+  transition: color , transform 500ms ease;
+ }
+ .deleteIcon:hover {
+   color: #d83030;
+   transform: scale(1.5);
  }
